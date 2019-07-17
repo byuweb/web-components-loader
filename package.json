@@ -1,5 +1,5 @@
 {
-  "name": "web-components-loader",
+  "name": "@byuweb/web-components-loader",
   "version": "0.1.0",
   "description": "Copy of webcomponents-loader.js to interface with our CDN.",
   "main": "webcomponents-loader.js",
