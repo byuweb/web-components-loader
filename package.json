@@ -1,0 +1,24 @@
+{
+  "name": "web-components-loader",
+  "version": "0.1.0",
+  "description": "Copy of webcomponents-loader.js to interface with our CDN.",
+  "main": "webcomponents-loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byuweb/web-components-loader.git"
+  },
+  "keywords": [
+    "web-components",
+    "html",
+    "byu"
+  ],
+  "author": "Blake Morgan <blake_morgan@byu.edu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/byuweb/web-components-loader/issues"
+  },
+  "homepage": "https://github.com/byuweb/web-components-loader#readme"
+}
