@@ -8,9 +8,7 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-(function() {
-  'use strict';
-
+export default function(polyfillRootUrl = 'https://cdn.byu.edu/web-component-polyfills-v2/2.2.10') {
   /**
    * Basic flow of the loader process
    *
@@ -139,12 +137,12 @@
   }
 
   if (polyfills.length) {
-    var url = 'https://cdn.byu.edu/web-component-polyfills-v2/2.2.10/webcomponents-' + polyfills.join('-') + '.js';
+    var url = polyfillRootUrl + '/webcomponents-' + polyfills.join('-') + '.js';
 
     var newScript = document.createElement('script');
     newScript.src = url;
     // if readyState is 'loading', this script is synchronous
-    if (document.readyState === 'loading') {
+    if (isSyncLoad()) {
       // make sure custom elements are batched whenever parser gets to the injected script
       newScript.setAttribute('onload', 'window.WebComponents._batchCustomElements()');
       document.write(newScript.outerHTML);
@@ -172,4 +170,12 @@
       })
     }
   }
-})();
+
+  function isSyncLoad() {
+    var cs = document.currentScript
+    if (cs && cs.async) {
+      return false
+    }
+    return document.readyState === 'loading';
+  }
+};
