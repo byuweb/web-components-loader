@@ -19,6 +19,9 @@ export default function load(bundleUrl, polyfillRootUrl) {
 function loadScript(relativeUrl) {
   const url = new URL(relativeUrl, myUrl);
   const el = document.createElement("script");
+  if (url.protocol !== 'https:') {
+    url.protocol = 'https:'
+  }
   el.src = url.href;
   el.type = 'module';
   document.head.append(el);
