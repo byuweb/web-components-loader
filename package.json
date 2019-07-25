@@ -1,6 +1,6 @@
 {
   "name": "@byuweb/web-components-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "BYU theme components laoder",
   "main": "dist/bundle.js",
   "scripts": {
