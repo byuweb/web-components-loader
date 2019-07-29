@@ -1,7 +1,7 @@
 {
   "name": "@byuweb/web-components-loader",
-  "version": "0.2.2",
-  "description": "BYU theme components laoder",
+  "version": "1.0.0",
+  "description": "BYU theme components loader",
   "main": "dist/bundle.js",
   "scripts": {
     "build": "rollup -c"
