@@ -197,7 +197,7 @@ function load(bundleUrl, polyfillRootUrl) {
 function loadScript(relativeUrl) {
   const url = new URL(relativeUrl, myUrl);
   const el = document.createElement("script");
-  if (url.protocol !== 'https:') {
+  if (url.protocol !== 'https:' && url.hostname !== 'localhost') {
     url.protocol = 'https:';
   }
   el.src = url.href;
