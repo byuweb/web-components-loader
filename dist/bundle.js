@@ -8,6 +8,15 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+function ie11Check() {
+  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+  if (isIE11) {
+    console.warn('IE11 detected. Terminating the byu-web-components.');
+    exit(0);
+  }
+}
+
 function loader(polyfillRootUrl = 'https://cdn.byu.edu/web-component-polyfills-v2/2.2.10') {
   /**
    * Basic flow of the loader process
@@ -181,13 +190,7 @@ function loader(polyfillRootUrl = 'https://cdn.byu.edu/web-component-polyfills-v
 const myUrl = document.currentScript.src;
 
 function load(bundleUrl, polyfillRootUrl) {
-  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
-  if (isIE11) {
-    console.warn('IE11 detected. Terminating the byu-web-components.');
-    exit(0);
-  }
-
+  ie11Check();
   loader(polyfillRootUrl);
 
   window.WebComponents = window.WebComponents || {
