@@ -181,6 +181,13 @@ function loader(polyfillRootUrl = 'https://cdn.byu.edu/web-component-polyfills-v
 const myUrl = document.currentScript.src;
 
 function load(bundleUrl, polyfillRootUrl) {
+  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+  if (isIE11) {
+    console.warn('IE11 detected. Terminating the byu-web-components.');
+    exit(0);
+  }
+
   loader(polyfillRootUrl);
 
   window.WebComponents = window.WebComponents || {
