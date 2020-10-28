@@ -3,6 +3,13 @@ import loader from './webcomponents-loader.js'
 const myUrl = document.currentScript.src;
 
 export default function load(bundleUrl, polyfillRootUrl) {
+  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+  if (isIE11) {
+    console.warn('IE11 detected. Terminating the byu-web-components.')
+    exit(0);
+  }
+
   loader(polyfillRootUrl)
 
   window.WebComponents = window.WebComponents || {
